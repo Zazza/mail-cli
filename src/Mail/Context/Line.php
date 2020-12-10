@@ -17,7 +17,9 @@ class Line extends Context
     {
         try {
             foreach ($this->users as $user) {
-                $output[] = $this->twig->render($this->template, $user);
+                $output[] = Methods::parseTemplate(
+                    $this->twig->render($this->template, $user)
+                );
             }
         } catch (\Exception $e) {
             throw new ExceptionContextRender();

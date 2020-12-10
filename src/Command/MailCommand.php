@@ -2,6 +2,7 @@
 namespace App\Command;
 
 use App\Mail\Generate;
+use App\Mail\Mail;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -51,6 +52,7 @@ class MailCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $contextFabric = new Generate($input->getArgument('context'));
+        $mailer = new Mail();
 
         try {
             $messages = $contextFabric
@@ -59,7 +61,9 @@ class MailCommand extends Command
                 ->setUsers($this->users)
                 ->process();
 
-            $output->writeln($messages);
+            $result = $mailer->processMessages($messages);
+
+            $output->writeln($result);
 
             return Command::SUCCESS;
         } catch (\Exception $e) {

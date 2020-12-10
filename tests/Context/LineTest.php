@@ -1,7 +1,6 @@
 <?php
 namespace App\Tests\Context;
 
-use App\Exception\ExceptionContextRender;
 use App\Mail\Generate;
 use PHPUnit\Framework\TestCase;
 
@@ -21,9 +20,9 @@ class LineTest extends TestCase
             ]])
             ->process();
 
-        $this->assertEquals([
-            'To: alex@mail.com'."\n"
-            .'Body: Привет, Alex Norton. Не забудь о встрече завтра в 10:00.'
-            ."\n"], $result);
+        self::assertEquals([
+            'to' => 'alex@mail.com',
+            'body' => 'Привет, Alex Norton. Не забудь о встрече завтра в 10:00.'
+        ], $result[0]);
     }
 }

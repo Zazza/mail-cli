@@ -32,7 +32,9 @@ class Table extends Context
         $usersInTable['name'] = implode(', ', $usersName);
 
         try {
-            $output[] = $this->twig->render($this->template, $usersInTable);
+            $output[] = Methods::parseTemplate(
+                $this->twig->render($this->template, $usersInTable)
+            );
         } catch (\Exception $e) {
             throw new ExceptionContextRender();
         }

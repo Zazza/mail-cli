@@ -1,7 +1,6 @@
 <?php
 namespace App\Tests\Context;
 
-use App\Exception\ExceptionContextRender;
 use App\Mail\Generate;
 use PHPUnit\Framework\TestCase;
 
@@ -21,9 +20,9 @@ class TableTest extends TestCase
             ]])
             ->process();
 
-        $this->assertEquals([
-            'To: admin@admin.ru'."\n"
-            .'Body: Отчет за сегодня. В системе зарегистрировались: Alex Norton. Их возраст соответственно: 67. А вот их адреса: alex@mail.com.'
-            ."\n"], $result);
+        self::assertEquals([
+            'to' => 'admin@admin.ru',
+            'body' => 'Отчет за сегодня. В системе зарегистрировались: Alex Norton. Их возраст соответственно: 67. А вот их адреса: alex@mail.com.'
+        ], $result[0]);
     }
 }
