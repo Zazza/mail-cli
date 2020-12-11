@@ -12,5 +12,8 @@ class MailTest extends TestCase
         $emails = $mail->processMessages([['to' => 'email@example.com', 'body' => 'Text']]);
 
         self::assertInstanceOf(\Swift_Message::class, $emails[0]);
+
+        self::assertEquals($emails[0]->getTo(), ['email@example.com' => null]);
+        self::assertEquals($emails[0]->getBody(), 'Text');
     }
 }

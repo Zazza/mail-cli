@@ -11,7 +11,7 @@ class LineTest extends TestCase
         $mail = new Generate('line');
         $result = $mail
             ->getContext()
-            ->setTemplate('templates/lineExample.volt')
+            ->setTemplate('templates/lineExample.twig')
             ->setUsers([[
                 'user_id' => 1,
                 'email' => 'alex@mail.com',

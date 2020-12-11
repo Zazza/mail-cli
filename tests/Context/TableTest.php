@@ -11,7 +11,7 @@ class TableTest extends TestCase
         $mail = new Generate('table');
         $result = $mail
             ->getContext()
-            ->setTemplate('templates/tableExample.volt')
+            ->setTemplate('templates/tableExample.twig')
             ->setUsers([[
                 'user_id' => 1,
                 'email' => 'alex@mail.com',
