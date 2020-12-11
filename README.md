@@ -18,13 +18,13 @@ Symfony был выбран, для быстрого развертывания 
 
 context = **line** или **table**
 
-Шаблоны для примера: **templates/lineExample.volt** и **templates/tableExample.volt**
+Шаблоны для примера: **templates/lineExample.twig** и **templates/tableExample.twig**
 
 **Примеры работы:**
 
-`./bin/console app:mail line templates/lineExample.volt`
+`./bin/console app:mail line templates/lineExample.twig`
 
-`./bin/console app:mail table templates/tableExample.volt`
+`./bin/console app:mail table templates/tableExample.twig`
 
 ## Тесты
 `# php bin/phpunit`

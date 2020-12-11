@@ -15,7 +15,7 @@ class ContextTest extends TestCase
         $mail = new Generate('line');
         $result = $mail
             ->getContext()
-            ->setTemplate('templates/unknown.volt')
+            ->setTemplate('templates/unknown.twig')
             ->setUsers([[
                 'user_id' => 1,
                 'email' => 'alex@mail.com',
@@ -32,7 +32,7 @@ class ContextTest extends TestCase
         $mail = new Generate('circle');
         $result = $mail
             ->getContext()
-            ->setTemplate('templates/unknown.volt')
+            ->setTemplate('templates/lineExample.twig')
             ->setUsers([[
                 'user_id' => 1,
                 'email' => 'alex@mail.com',
